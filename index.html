@@ -1,0 +1,312 @@
+// deigned by Blank State Productions.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blank Managers </title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#003049;
+--surface:#003a57;
+--surface2:#004466;
+--border:#1a5a75;
+--text:#ffffff;
+--muted:#669bbc;
+--accent:hsl(0, 100%, 48%);
+--accent-dark:#f80000;
+}
+html{scroll-behavior:smooth}
+body{
+font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+nav{
+position:fixed;top:0;left:0;right:0;z-index:100;
+background:rgba(0,48,73,0.92);
+backdrop-filter:blur(14px);
+border-bottom:1px solid var(--border);
+}
+nav .inner{
+display:flex;align-items:center;justify-content:space-between;
+height:64px;max-width:1100px;margin:0 auto;padding:0 24px;
+}
+.logo{font-weight:700;font-size:1.15rem;letter-spacing:-0.02em}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--muted);font-size:0.9rem;font-weight:500}
+.nav-links a:hover{color:var(--text);text-decoration:none}
+.btn{
+display:inline-flex;align-items:center;gap:8px;
+padding:10px 20px;border-radius:8px;font-weight:600;font-size:0.9rem;
+border:none;cursor:pointer;transition:all 0.2s;
+}
+.btn-primary{background:var(--accent);color:var(--text)}
+.btn-primary:hover{background:var(--accent-dark);text-decoration:none}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text)}
+.btn-outline:hover{border-color:var(--muted);text-decoration:none}
+.hero{
+padding:140px 0 70px;
+text-align:center;
+}
+.hero h1{
+font-size:clamp(2.4rem,5vw,3.5rem);
+font-weight:800;letter-spacing:-0.03em;line-height:1.15;
+margin-bottom:18px;
+}
+.hero h1 span{color:var(--accent)}
+.hero p{
+font-size:1.12rem;color:var(--muted);max-width:540px;
+margin:0 auto 32px;
+}
+.badge{
+display:inline-flex;align-items:center;gap:8px;
+background:var(--surface2);border:1px solid var(--border);
+padding:6px 14px;border-radius:999px;font-size:0.8rem;
+color:var(--accent);font-weight:600;margin-bottom:26px;
+}
+.badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.screenshot-wrap{
+margin-top:52px;
+border-radius:12px;overflow:hidden;
+border:1px solid var(--border);
+box-shadow:0 28px 60px -18px rgba(0,0,0,0.45);
+}
+.screenshot-wrap img{width:100%;display:block}
+section{padding:72px 0}
+.section-title{
+font-size:1.75rem;font-weight:700;letter-spacing:-0.02em;
+margin-bottom:10px;text-align:center;
+}
+.section-sub{
+color:var(--muted);text-align:center;max-width:500px;margin:0 auto 44px;
+}
+.features{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:20px;
+}
+.feature{
+background:var(--surface);border:1px solid var(--border);
+border-radius:12px;padding:26px;
+transition:border-color 0.2s;
+}
+.feature:hover{border-color:var(--muted)}
+.feature-icon{
+width:38px;height:38px;border-radius:9px;
+background:var(--surface2);display:flex;align-items:center;justify-content:center;
+font-size:1.15rem;margin-bottom:14px;
+}
+.feature h3{font-size:1.05rem;margin-bottom:6px}
+.feature p{color:var(--muted);font-size:0.9rem}
+.showcase{background:var(--surface)}
+.showcase-item{
+display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;
+margin-bottom:64px;
+}
+.showcase-item:last-child{margin-bottom:0}
+.showcase-item.reverse{direction:rtl}
+.showcase-item.reverse>*{direction:ltr}
+.showcase-text h3{font-size:1.35rem;margin-bottom:10px}
+.showcase-text p{color:var(--muted);margin-bottom:14px;font-size:0.95rem}
+.showcase-text ul{list-style:none}
+.showcase-text li{
+padding:5px 0;color:var(--muted);font-size:0.92rem;
+display:flex;align-items:center;gap:9px;
+}
+.showcase-text li::before{content:'✓';color:var(--accent);font-weight:700}
+.showcase-img{
+border-radius:10px;overflow:hidden;border:1px solid var(--border);
+box-shadow:0 12px 30px -10px rgba(0,0,0,0.35);
+}
+.showcase-img img{width:100%;display:block}
+.stats{
+display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+text-align:center;margin-top:48px;
+}
+.stat{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:22px}
+.stat-num{font-size:1.7rem;font-weight:700;color:var(--accent)}
+.stat-label{font-size:0.82rem;color:var(--muted);margin-top:3px}
+.cta{
+text-align:center;padding:90px 0;
+background:linear-gradient(180deg,var(--bg) 0%,var(--surface) 100%);
+}
+.cta h2{font-size:1.9rem;margin-bottom:12px}
+.cta p{color:var(--muted);margin-bottom:28px;max-width:460px;margin-left:auto;margin-right:auto}
+footer{
+border-top:1px solid var(--border);padding:28px 0;
+text-align:center;color:var(--muted);font-size:0.82rem;
+}
+@media(max-width:820px){
+.showcase-item,.showcase-item.reverse{grid-template-columns:1fr;direction:ltr}
+.stats{grid-template-columns:1fr 1fr}
+.nav-links a:not(.btn){display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+<div class="inner">
+<div class="logo">Blank <span>Managers</span></div>
+<div class="nav-links">
+<a href="#features">Features</a>
+<a href="#showcase">Preview</a>
+<a href="#cta" class="btn btn-outline">Coming Soon to Github</a>
+</div>
+</div>
+</nav>
+<header class="hero">
+<div class="container">
+<div class="badge">Coming soon to GitHub</div>
+<h1>System monitoring<br>without the clutter</h1>
+<p>Blank Managers gives you a clean, real-time view of CPU, memory, processes, and more. Designed for Up to date Managment and Clarity for your component's.</p>
+<div class="hero-cta">
+<a href="#cta" class="btn btn-primary">Get Notified</a>
+<a href="#showcase" class="btn btn-outline">See Preview</a>
+</div>
+<div class="screenshot-wrap">
+<img src="https://kappa.lol/tZ91BT" alt="Blank Managers Summary view">
+</div>
+</div>
+</header>
+<section id="features">
+<div class="container">
+<h2 class="section-title">Everything you need at a glance</h2>
+<p class="section-sub">A focused tool for tracking system health, processes, and performance without unnecessary bloat.</p>
+<div class="features">
+<div class="feature">
+<div class="feature-icon">📊</div>
+<h3>CPU & Memory Overview</h3>
+<p>Live utilization graphs, per-core breakdowns, and memory usage with clear visual indicators.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">⚙️</div>
+<h3>Process Manager</h3>
+<p>Sort and inspect running processes by CPU, memory, or name. Identify resource hogs instantly.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">🌡️</div>
+<h3>Temperature Managment and Sensors</h3>
+<p>GPU temperature via nvidia-smi and system sensor data so you stay informed under load.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">🌐</div>
+<h3>App History</h3>
+<p>Track cumulative CPU time and memory per application since startup for deeper insights.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">💾</div>
+<h3>Disk & Network</h3>
+<p>Real-time disk I/O and network throughput displayed in the status bar at all times.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">🎨</div>
+<h3>6 built in themes</h3>
+<p>Blank Managers comes with 6 built in themes.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="showcase" id="showcase">
+<div class="container">
+<div class="showcase-item">
+<div class="showcase-text">
+<h3>Performance at the core</h3>
+<p>Per-core CPU graphs update in real time so you can see exactly where load is concentrated across your processor.</p>
+<ul>
+<li>12 logical processors visualized</li>
+<li>Smooth live charts</li>
+<li>Clock speed and uptime always visible</li>
+</ul>
+</div>
+<div class="showcase-img">
+<img src="https://kappa.lol/sd2Ra5" alt="Performance tab">
+</div>
+</div>
+<div class="showcase-item reverse">
+<div class="showcase-text">
+<h3>Process control</h3>
+<p>The Up to date Resource Manager.</p>
+<ul>
+<li>PID, name, CPU %, memory</li>
+<li>System Idle Process accounting</li>
+<li>Lightweight and responsive</li>
+</ul>
+</div>
+<div class="showcase-img">
+<img src="https://kappa.lol/7P6PzK" alt="Processes tab">
+</div>
+</div>
+<div class="showcase-item">
+<div class="showcase-text">
+<h3>System information</h3>
+<p>Quick glance at hardware details, OS Versions, Memory Intakes etc.</p>
+<ul>
+<li>Processor and core counts</li>
+<li>Memory and partition usage</li>
+<li>Python & psutil versions</li>
+</ul>
+</div>
+<div class="showcase-img">
+<img src="https://kappa.lol/T377uy" alt="System Info tab">
+</div>
+</div>
+<div class="showcase-item reverse">
+<div class="showcase-text">
+<h3>App history</h3>
+<p>See cumulative CPU time and current memory for every application since it started.</p>
+<ul>
+<li>Total CPU time tracking</li>
+<li>Current memory footprint</li>
+<li>Sorted by impact</li>
+</ul>
+</div>
+<div class="showcase-img">
+<img src="https://kappa.lol/HfyMUV" alt="App history tab">
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="container">
+<div class="stats">
+<div class="stat">
+<div class="stat-num">12</div>
+<div class="stat-label">Logical Cores</div>
+</div>
+<div class="stat">
+<div class="stat-num">&lt;50ms</div>
+<div class="stat-label">Refresh Rate</div>
+</div>
+<div class="stat">
+<div class="stat-num">Dark</div>
+<div class="stat-label">Native Theme</div>
+</div>
+<div class="stat">
+<div class="stat-num">Win 11</div>
+<div class="stat-label">Optimized</div>
+</div>
+</div>
+</div>
+</section>
+<section class="cta" id="cta">
+<div class="container">
+<h2>Coming soon to GitHub</h2>
+<p>Blank Managers is still in active development. Follow the project when it launches to get early access and updates.</p>
+<a href="#" class="btn btn-primary" onclick="alert('Repository not public yet — stay tuned!');return false;">Notify Me on Launch</a>
+</div>
+</section>
+<footer>
+<div class="container">
+<p>© 2026 Blank State Productions · Not affiliated with any system vendor · Coming soon to GitHub</p>
+</div>
+</footer>
+</body>
+</html>
