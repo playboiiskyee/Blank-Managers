@@ -1,2 +1,2 @@
 # Blank-Managers
-Blank Managers is THE brand new Resource Manager. Coming to you soon.
+Blank Managers Official Website. Any others are not affiliated with Blank State Productions and are not real. Bewarb
